@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'; // เพิ่มการนำเข้าตัว defineConfig
+import { defineConfig } from 'vite';
 
-const repositoryName = "engse203-student-labs-68543210009-5";
+const repositoryName = "engse203-student-labs-685432100095"; 
 
 export default defineConfig({
   base: `/${repositoryName}/labs/week-02/`,
