@@ -24,7 +24,7 @@ npm run import:source -- week-01 /path/to/old-lab01
 - Screenshot โปรแกรม `hello.js`
 
 Sorce code
-<img src="image/sorcecodelab01" alt="Git Version" width="500" />
+<img src="image/sorcecodelab01.png" alt="Git Version" width="500" />
 
 - Original Repository URL และ Commit SHA
 Original Repository URL: [https://github.com/Njuntaya/engse203-lab01--68543210009-5c3947fef0f8982851f625292118fe5fcfa23d65a](https://github.com/Njuntaya/engse203-lab01--68543210009-5c3947fef0f8982851f625292118fe5fcfa23d65a)
