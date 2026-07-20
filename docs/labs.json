@@ -32,16 +32,16 @@
   {
     "week": "week-03",
     "title": "Responsive Web UI & Form Interaction",
-    "status": "draft",
-    "originalRepoUrl": "",
-    "originalCommit": "",
-    "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
+    "status": "submitted",
+    "originalRepoUrl": "https://github.com/Njuntaya/engse203-lab03-68543210009-5",
+    "originalCommit": "5a08f18315a286b232c4217dfe8f8dc2b832d35e",
+    "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/10/",
+    "submissionTag": "lab-03-submission-v1",
+    "testStatus": "pass",
     "notes": "Static site ต้องมี index.html ที่ publish root",
     "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-03/",
     "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/lab/week-03/labs/week-03/source",
     "hasPublish": true,
-    "sourceEntries": 10
+    "sourceEntries": 9
   }
 ]
