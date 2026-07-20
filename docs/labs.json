@@ -41,7 +41,7 @@
     "notes": "Static site ต้องมี index.html ที่ publish root",
     "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-03/",
     "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/lab/week-03/labs/week-03/source",
-    "hasPublish": false,
-    "sourceEntries": 0
+    "hasPublish": true,
+    "sourceEntries": 10
   }
 ]
