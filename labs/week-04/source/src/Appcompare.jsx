@@ -1,3 +1,4 @@
+App.Jsx
 import { useState } from 'react';
 import AppHeader from './components/AppHeader.jsx';
 import SummaryPanel from './components/SummaryPanel.jsx';
@@ -5,7 +6,6 @@ import TaskForm from './components/TaskForm.jsx';
 import FilterBar from './components/FilterBar.jsx';
 import TaskList from './components/TaskList.jsx';
 import { initialTasks } from './data/initialTasks.js';
-
 
 function App() {
   const [tasks, setTasks] = useState(initialTasks);
@@ -36,11 +36,9 @@ function App() {
           <section className="panel">
             <FilterBar value={statusFilter} onFilterChange={setStatusFilter} />
             <TaskList tasks={filteredTasks} onDeleteTask={handleDeleteTask} />
-          </section>
+                     </section>
         </div>
       </main>
     </>
   );
 }
-
-export default App;
