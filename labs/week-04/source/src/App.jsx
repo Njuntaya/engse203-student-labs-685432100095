@@ -1,32 +1,48 @@
-import AppHeader from './components/AppHeader.jsx';
-import SummaryPanel from './components/SummaryPanel.jsx';
-import RequestForm from './components/RequestForm.jsx';
-import FilterBar from './components/FilterBar.jsx';
-import RequestList from './components/RequestList.jsx';
-import { initialRequests } from './data/initialRequests.js';
+import { useState } from "react";
+import AppHeader from "./components/AppHeader.jsx";
+import SummaryPanel from "./components/SummaryPanel.jsx";
+import RequestForm from "./components/RequestForm.jsx";
+import FilterBar from "./components/FilterBar.jsx";
+import RequestList from "./components/RequestList.jsx";
+import { initialRequests } from "./data/initialRequests.js";
 
 function App() {
   // TODO LAB4-R04: เปลี่ยน requests/statusFilter เป็น state
-  const [requests , setRequests] = useState(initialRequests)
-  const [statusFilter , setStatusFilter] = setState('all');
+  const [requests, setRequests] = useState(initialRequests);
+  const [statusFilter, setStatusFilter] = useState("all");
 
   // TODO LAB4-R04: คำนวณ summary เป็น derived data
   const summary = {
     total: requests.length,
-    pending: requests.filter((request) => request.status === 'pending').length,
-    inProgress: requests.filter((request) => request.status === 'in-progress').length,
-    completed: requests.filter((request) => request.status === 'completed').length,
+    pending: requests.filter((request) => request.status === "pending").length,
+    inProgress: requests.filter((request) => request.status === "in-progress")
+      .length,
+    completed: requests.filter((request) => request.status === "completed")
+      .length,
   };
 
   // TODO LAB4-R08: คำนวณ filteredRequests จาก requests + statusFilter
-  const filteredRequests = requests;
+  const filteredRequests =
+    statusFilter === "all"
+      ? requests
+      : requests.filter((request) => request.status === statusFilter);
 
   function handleAddRequest(requestData) {
-    console.log('TODO add request', requestData);
+    setRequests((currentRequests) => {
+      const nextNumber = currentRequests.length + 1;
+      const newRequest = {
+        id: `REQ-${String(nextNumber).padStart(3, "0")}`,
+        ...requestData,
+        status: "pending",
+      };
+      return [newRequest, ...currentRequests];
+    });
   }
 
   function handleDeleteRequest(requestId) {
-    console.log('TODO delete request', requestId);
+    setRequests((currentRequests) =>
+      currentRequests.filter((request) => request.id !== requestId),
+    );
   }
 
   return (
@@ -42,7 +58,10 @@ function App() {
           <section className="panel" aria-labelledby="request-list-title">
             <div className="section-heading">
               <h2 id="request-list-title">รายการคำร้อง</h2>
-              <FilterBar value={statusFilter} onFilterChange={() => {}} />
+              <FilterBar
+                value={statusFilter}
+                onFilterChange={setStatusFilter}
+              />{" "}
             </div>
             <RequestList
               requests={filteredRequests}
@@ -56,4 +75,3 @@ function App() {
 }
 
 export default App;
-
