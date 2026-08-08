@@ -7,15 +7,15 @@ import { initialRequests } from './data/initialRequests.js';
 
 function App() {
   // TODO LAB4-R04: เปลี่ยน requests/statusFilter เป็น state
-  const requests = initialRequests;
-  const statusFilter = 'all';
+  const [requests , setRequests] = useState(initialRequests)
+  const [statusFilter , setStatusFilter] = setState('all');
 
   // TODO LAB4-R04: คำนวณ summary เป็น derived data
   const summary = {
     total: requests.length,
-    pending: 0,
-    inProgress: 0,
-    completed: 0,
+    pending: requests.filter((request) => request.status === 'pending').length,
+    inProgress: requests.filter((request) => request.status === 'in-progress').length,
+    completed: requests.filter((request) => request.status === 'completed').length,
   };
 
   // TODO LAB4-R08: คำนวณ filteredRequests จาก requests + statusFilter
