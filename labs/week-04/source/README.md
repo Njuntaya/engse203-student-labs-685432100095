@@ -12,7 +12,7 @@
 
 | รายการ | ลิงก์ |
 |---|---|
-| Repository | TODO |
+| Repository | https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/labs/week-04/labs/week-04 |
 | Pull Request | TODO |
 | GitHub Pages | TODO |
 
