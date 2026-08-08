@@ -5,7 +5,7 @@
   "sourceOrigin": "course-starter",
   "originalRepoUrl": "",
   "originalCommit": "",
-  "pullRequestUrl": "",
+  "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/14",
   "submissionTag": "lab-04-submission-v1",
   "testStatus": "submitted",
   "notes": "React/Vite build output ต้องอยู่ใน publish/ ก่อนสร้าง Pages Hub"
