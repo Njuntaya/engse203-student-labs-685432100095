@@ -13,8 +13,9 @@
 | รายการ | ลิงก์ |
 |---|---|
 | Repository | https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/labs/week-04/labs/week-04 |
-| Pull Request | TODO |
-| GitHub Pages | TODO |
+| Pull Request | https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/15 |
+| GitHub Pages | https://njuntaya.github.io/engse203-student-labs-685432100095/labs/week-04/
+ |
 
 ---
 
@@ -94,7 +95,8 @@ npm run preview
 | TC-09 Mobile | ทดสอบที่ 375px → เป็นหนึ่งคอลัมน์ ไม่มี horizontal scroll, ปุ่ม/ฟอร์มกดง่าย — ต้องทดสอบบนเบราว์เซอร์จริง (DevTools responsive mode) | <img width="503" height="938" alt="TC-09 Mobile" src="https://github.com/user-attachments/assets/ab94bb04-14e1-470a-bdd8-e0a617be1198" /> |
 | TC-10 Keyboard | Tab ไล่ลำดับ field ได้ครบ, `:focus-visible` เห็นชัด (outline สีเหลือง), radio ใช้ลูกศรเลือกได้ — ต้องทดสอบบนเบราว์เซอร์จริง | <img width="1909" height="942" alt="TC-10 Keyboard" src="https://github.com/user-attachments/assets/4f2dd887-bfac-44da-93f6-f98ba827e6a2" /> |
 | TC-11 Build | `npm run build` ผ่านจริง ไม่มี error/warning | <img width="1094" height="253" alt="TC-11 Build" src="https://github.com/user-attachments/assets/af320cb1-b415-4380-8e60-ce9bf7739bee" /> |
-| TC-12 Pages | เปิด GitHub Pages URL ใน Incognito → หน้าเว็บโหลดและทำงานได้ครบ ไม่มี asset 404 — ยังไม่ได้ deploy ต้องทำหลัง push repo | TODO |
+| TC-12 Pages | เปิด GitHub Pages URL ใน Incognito → หน้าเว็บโหลดและทำงานได้ครบ ไม่มี asset 404 — ยังไม่ได้ deploy ต้องทำหลัง push repo | <img width="1094" height="253" alt="Tc-12" src="https://github.com/user-attachments/assets/a556cd32-d22f-4ce5-9430-0cd0ee60ca4d" />
+
 
 ---
 
