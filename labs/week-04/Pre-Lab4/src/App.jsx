@@ -16,6 +16,7 @@ function App() {
     doing: tasks.filter((task) => task.status === 'doing').length,
     done: tasks.filter((task) => task.status === 'done').length,
   };
+  
   const filteredTasks = statusFilter === 'all' ? tasks : tasks.filter((task) => task.status === statusFilter);
 
   function handleAddTask(taskData) {
