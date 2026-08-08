@@ -81,19 +81,20 @@ npm run preview
 
 ## Test Evidence
 
-| Test ID | Actual Result | Pass/Fail | Evidence/Screenshot |
+| Test ID | Actual Result | Evidence/Screenshot |
 |---|---|---|---|
-| TC-01 Initial | โหลดหน้าแรกแสดง 3 คำร้องเริ่มต้นจาก `initialRequests.js` (REQ-1001, REQ-1002, REQ-1003) และ Summary แสดง total=3, pending=1, inProgress=1, completed=1 ถูกต้อง | TODO | TODO |
-| TC-02 Controlled input | พิมพ์ในทุก field (requesterName, location, details) แล้วค่าปรากฏใน state ทันที (value ผูกกับ formData) — ต้องยืนยันด้วย React DevTools บนเบราว์เซอร์จริง | TODO | TODO |
-| TC-03 Invalid | Submit ฟอร์มเปล่า/ข้อมูลไม่ครบ → error message แสดงใต้แต่ละ field ตรงกับ `validateRequest()` (4 error: requesterName, requestType, location, details), ฟอร์มไม่ reset และไม่เพิ่มรายการใหม่ | TODO | TODO |
-| TC-04 Valid add | กรอกครบและถูกต้อง → รายการใหม่ถูกเพิ่มเข้า list ด้วย object ใหม่ (immutable spread), status = "pending" เสมอ, ฟอร์ม reset กลับเป็นค่าเริ่มต้น, feedback ขึ้นข้อความ "เพิ่มคำร้องใหม่เรียบร้อยแล้ว" | TODO | TODO |
-| TC-05 Filter | คลิกปุ่มกรองสถานะ (เช่น "รอดำเนินการ") → RequestList แสดงเฉพาะ request ที่ status ตรงกัน | TODO | TODO |
-| TC-06 All | คลิกปุ่ม "ทั้งหมด" → กลับมาแสดงครบทุก request อีกครั้ง ไม่มีรายการตกหล่น | TODO | TODO |
-| TC-07 Empty | กรองสถานะที่ไม่มีข้อมูล → `filteredRequests.length = 0` แสดง empty state "ไม่มีคำร้องในสถานะนี้..." แทนลิสต์ว่างเปล่า | TODO | TODO |
-| TC-08 Delete | กดปุ่ม "ลบ" ที่การ์ด → ส่ง id ผ่าน callback, `filter()` เอาเฉพาะ id นั้นออก (array เดิมไม่ mutate), รายการหายไปจากลิสต์ทันที | TODO | TODO |
-| TC-09 Mobile | ทดสอบที่ 375px → เป็นหนึ่งคอลัมน์ ไม่มี horizontal scroll, ปุ่ม/ฟอร์มกดง่าย — ต้องทดสอบบนเบราว์เซอร์จริง (DevTools responsive mode) | TODO | TODO |
-| TC-10 Keyboard | Tab ไล่ลำดับ field ได้ครบ, `:focus-visible` เห็นชัด (outline สีเหลือง), radio ใช้ลูกศรเลือกได้ — ต้องทดสอบบนเบราว์เซอร์จริง | TODO | TODO |
-| TC-11 Build | `npm run build` ผ่านจริง ไม่มี error/warning | TODO | TODO |
+| TC-01 Initial | โหลดหน้าแรกแสดง 3 คำร้องเริ่มต้นจาก `initialRequests.js` (REQ-1001, REQ-1002, REQ-1003) และ Summary แสดง total=3, pending=1, inProgress=1, completed=1 ถูกต้อง |  <img width="1918" height="1034" alt="Tc-01 Initial" src="https://github.com/user-attachments/assets/7fdced25-25b6-4738-93ac-4b240a260458" /> |
+| TC-02 Controlled input | พิมพ์ในทุก field (requesterName, location, details) แล้วค่าปรากฏใน state ทันที (value ผูกกับ formData) — ต้องยืนยันด้วย React DevTools บนเบราว์เซอร์จริง |  <img width="1913" height="1000" alt="TC-02 Controlled input" src="https://github.com/user-attachments/assets/adcb6340-a690-4351-bb9a-5a952d61e932" />|
+| TC-03 Invalid | Submit ฟอร์มเปล่า/ข้อมูลไม่ครบ → error message แสดงใต้แต่ละ field ตรงกับ `validateRequest()` (4 error: requesterName, requestType, location, details), ฟอร์มไม่ reset และไม่เพิ่มรายการใหม่ |  <img width="1913" height="999" alt="TC-03 Invalid" src="https://github.com/user-attachments/assets/ed38b46b-67b1-428b-9fad-f28863022285" />|
+| TC-04 Valid add | กรอกครบและถูกต้อง → รายการใหม่ถูกเพิ่มเข้า list ด้วย object ใหม่ (immutable spread), status = "pending" เสมอ, ฟอร์ม reset กลับเป็นค่าเริ่มต้น, feedback ขึ้นข้อความ "เพิ่มคำร้องใหม่เรียบร้อยแล้ว" |  <img width="1919" height="1035" alt="TC-04 Valid add" src="https://github.com/user-attachments/assets/eeed9ad4-f860-493f-9d23-dae2e44cb30c" /> |
+| TC-05 Filter | คลิกปุ่มกรองสถานะ (เช่น "รอดำเนินการ") → RequestList แสดงเฉพาะ request ที่ status ตรงกัน | <img width="1919" height="989" alt="TC-05 Filter" src="https://github.com/user-attachments/assets/d6817ec3-a4b3-4e01-8553-21b731897312" /> |
+| TC-06 All | คลิกปุ่ม "ทั้งหมด" → กลับมาแสดงครบทุก request อีกครั้ง ไม่มีรายการตกหล่น | <img width="1914" height="948" alt="TC-06 All" src="https://github.com/user-attachments/assets/2ec11c81-3bbc-40f6-ab4a-a8462c62c754" /> |
+| TC-07 Empty | กรองสถานะที่ไม่มีข้อมูล → `filteredRequests.length = 0` แสดง empty state "ไม่มีคำร้องในสถานะนี้..." แทนลิสต์ว่างเปล่า |  <img width="1911" height="956" alt="TC-07 Empty" src="https://github.com/user-attachments/assets/0d8d45ba-1cf2-4c08-8943-03d3d6d6f568" />|
+| TC-08 Delete | กดปุ่ม "ลบ" ที่การ์ด → ส่ง id ผ่าน callback, `filter()` เอาเฉพาะ id นั้นออก (array เดิมไม่ mutate), รายการหายไปจากลิสต์ทันที |  <img width="1912" height="954" alt="TC-08 Delete" src="https://github.com/user-attachments/assets/5fa85972-ccba-4fb4-aba9-8c023d721ef2" /> |
+| TC-09 Mobile | ทดสอบที่ 375px → เป็นหนึ่งคอลัมน์ ไม่มี horizontal scroll, ปุ่ม/ฟอร์มกดง่าย — ต้องทดสอบบนเบราว์เซอร์จริง (DevTools responsive mode) |  <img width="503" height="938" alt="TC-09 Mobile" src="https://github.com/user-attachments/assets/ab94bb04-14e1-470a-bdd8-e0a617be1198" />|
+| TC-10 Keyboard | Tab ไล่ลำดับ field ได้ครบ, `:focus-visible` เห็นชัด (outline สีเหลือง), radio ใช้ลูกศรเลือกได้ — ต้องทดสอบบนเบราว์เซอร์จริง |  <img width="1909" height="942" alt="TC-10 Keyboard" src="https://github.com/user-attachments/assets/4f2dd887-bfac-44da-93f6-f98ba827e6a2" /> |
+| TC-11 Build | `npm run build` ผ่านจริง ไม่มี error/warning |  <img width="1094" height="253" alt="TC-11 Build" src="https://github.com/user-attachments/assets/af320cb1-b415-4380-8e60-ce9bf7739bee" />
+|
 | TC-12 Pages | เปิด GitHub Pages URL ใน Incognito → หน้าเว็บโหลดและทำงานได้ครบ ไม่มี asset 404 — ยังไม่ได้ deploy ต้องทำหลัง push repo | TODO | TODO |
 
 ---
