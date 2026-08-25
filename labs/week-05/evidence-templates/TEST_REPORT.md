@@ -34,7 +34,7 @@
 | TC-L5-21 | ใช้งานผ่านแป้นพิมพ์อย่างเดียว (Tab/Enter) | กด Tab วนเลือกเมนู กรอกฟอร์ม ส่งข้อมูลได้โดยไม่ใช้เมาส์ | ใช้งานผ่านคีย์บอร์ดได้ครบตามที่คาด | PASS | <img src="image/keyboard-a11y.png" width="180"> |
 | TC-L5-22 | รันคำสั่งเช็คโค้ด Build และ Preview | Build ผ่าน ได้ไฟล์ production เปิด preview รันได้ไม่มีปัญหา | Build และ Preview สำเร็จตามที่คาด | PASS | <img src="image/pnpm-build_pnpm-preview.png" width="180"> |
 | TC-L5-23 | เปิดเว็บใน Incognito แล้วกด Refresh URL Hash | เว็บทำงานปกติในโหมดไม่ระบุตัวตน Refresh ไม่หลุด | ทำงานได้ปกติตามที่คาด | PASS | <img src="image/pages-incognito.png" width="180"> |
-| TC-L5-24 | รวม code เข้า main (PR) และแปะ Tag | รวม PR เข้า branch หลักสำเร็จ พร้อมติด Tag เวอร์ชัน | รวมและ Tag สำเร็จตามที่คาด | PASS | ⚠️ ยังไม่ใส่ลิงก์ PR |
+| TC-L5-24 | รวม code เข้า main (PR) และแปะ Tag | รวม PR เข้า branch หลักสำเร็จ พร้อมติด Tag เวอร์ชัน | รวมและ Tag สำเร็จตามที่คาด | PASS | https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/16 |
 
 ---
 
