@@ -89,6 +89,17 @@ function DashboardPage() {
     }
   }
 
+  async function handleMarkDone(requestId) {
+    try {
+      // เรียกฟังก์ชันจาก Service เพื่ออัปเดตสถานะคำร้องนี้ให้เป็น 'completed'
+      const nextRequests = await updateRequestStatus(requestId, 'completed');
+      setRequests(nextRequests); // อัปเดต State ข้อมูลใหม่
+      setNotice(`ทำเครื่องหมายคำร้อง ${requestId} ว่าเสร็จสิ้นแล้ว`);
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'อัปเดตสถานะไม่สำเร็จ');
+    }
+  }
+
   async function handleReset() { //Bug 6
     if (!window.confirm('ต้องการคืนข้อมูลตัวอย่างเริ่มต้นหรือไม่?')) return;
     try {
@@ -132,7 +143,7 @@ function DashboardPage() {
             </div>
 
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
-            <RequestList requests={filteredRequestsWithSearch} onDeleteRequest={handleDelete} />
+            <RequestList requests={filteredRequestsWithSearch} onDeleteRequest={handleDelete} onMarkDone={handleMarkDone} />
           </section>
         </>
       )}
