@@ -43,7 +43,6 @@ function DashboardPage() {
 
   const summary = useMemo(() => ({
     total: requests.length,
-
     pending: requests.filter((request) => request.status === 'pending').length, // before completed after pending 
     inProgress: requests.filter((request) => request.status === 'in-progress').length,
     completed: requests.filter((request) => request.status === 'completed').length,
@@ -70,10 +69,11 @@ function DashboardPage() {
     }
   }
 
-  async function handleReset() {
+  async function handleReset() { //Bug 6
     if (!window.confirm('ต้องการคืนข้อมูลตัวอย่างเริ่มต้นหรือไม่?')) return;
     try {
-      setRequests(resetRequests());
+      const NextRequests = await resetRequests();
+      setRequests(NextRequests);
       setStatusFilter('all');
       setNotice('คืนข้อมูลตัวอย่างเริ่มต้นแล้ว');
     } catch (error) {
