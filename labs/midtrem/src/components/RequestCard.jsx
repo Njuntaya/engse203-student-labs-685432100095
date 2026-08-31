@@ -9,7 +9,7 @@ function RequestCard({ request, onDeleteRequest, onMarkDone }) {
         <h3><Link to={`/requests/${request.id}`}>{request.requestType}</Link></h3>
         <p>{request.location}</p>
         <p>{request.details}</p>
-        <p><span className={`badge ${request.status}`}>{request.status}</span> · {request.priority}</p>
+        <p><span className={`badge ${request.status}`}>{request.status}</span> · <PriorityBadge priority={request.priority} /></p>
       </div>
       <div className="request-actions">
         {request.status !== 'completed' && (
