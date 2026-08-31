@@ -107,7 +107,7 @@ export async function resetRequests() {
  * updateRequestStatus · เปลี่ยนสถานะคำร้องแล้ว persist  (ให้มาแล้ว — ห้ามแก้)
  * ใช้ใน B3: เรียกฟังก์ชันนี้จากปุ่ม แล้วทำให้หน้าจอสะท้อนผล
  */
-export async function updateRequestStatus(requestId, nextStatus) {
+export async function updateRequestStatus(requestId, nextStatus) { // now update local storage
   const allowed = ['pending', 'in-progress', 'completed'];
   if (!allowed.includes(nextStatus)) throw new Error('สถานะไม่ถูกต้อง');
   const requests = await getRequests();
