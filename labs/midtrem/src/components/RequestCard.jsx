@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PriorityBadge from './PriorityBadge';
 
 function RequestCard({ request, onDeleteRequest, onMarkDone }) {
   return (
