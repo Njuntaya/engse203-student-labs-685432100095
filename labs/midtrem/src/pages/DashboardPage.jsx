@@ -13,7 +13,7 @@ function DashboardPage() {
   const scenario = searchParams.get('scenario') ?? '';
   const [reloadKey, reload] = useManualReload();
   const [loadState, setLoadState] = useState('idle');
-  const [requests, setRequests] = useState([]);
+  const [requests, setRequests] = useState([]); // useState Update 
   const [statusFilter, setStatusFilter] = useState('all');
   // TODO B2: เพิ่ม state สำหรับข้อความค้นหา ที่นี่
   const [errorMessage, setErrorMessage] = useState('');
@@ -64,6 +64,7 @@ function DashboardPage() {
       const nextRequests = await deleteRequest(requestId);
       setRequests(requests);
       setNotice(`ลบคำร้อง ${requestId} แล้ว`);
+      setRequests(nextRequests); //Update State after delete
     } catch (error) {
       setNotice(error instanceof Error ? error.message : 'ลบคำร้องไม่สำเร็จ');
     }

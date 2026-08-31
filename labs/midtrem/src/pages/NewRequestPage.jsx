@@ -4,6 +4,7 @@ import { addRequest } from '../services/requestService.js';
 
 function NewRequestPage() {
   const navigate = useNavigate();
+  
   async function handleAddRequest(input) {
     const created = await addRequest(input);
     navigate(`/requests/${created.id}`);
