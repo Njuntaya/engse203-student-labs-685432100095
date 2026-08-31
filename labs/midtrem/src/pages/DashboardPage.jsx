@@ -54,6 +54,25 @@ function DashboardPage() {
 
     : requests.filter((request) => request.status === statusFilter);
 
+  // เพิ่มการกรองด้วยข้อความค้นหา (searchText) ร่วมกับ statusFilter
+ const filteredRequestsWithSearch = filteredRequests.filter((request) => {
+
+  const queryWords = searchText.toLowerCase().trim().split(/\s+/);
+    
+    // ถ้าผู้ใช้ยังไม่ได้พิมพ์อะไรเลย ให้ผ่าน (แสดงทั้งหมด)
+    if (!searchText.trim()) return true;
+
+    // รวมข้อมูลทุกฟิลด์ที่ต้องการให้ค้นหาเข้าด้วยกันเป็นก้อนข้อความเดียว
+    const combinedFields = `
+      ${request.status || ''} 
+      ${request.requesterName || ''} 
+      ${request.details || ''}
+    `.toLowerCase();
+
+    return queryWords.every((word) => combinedFields.includes(word));
+  });
+      
+
   function handleRetry() {
     if (scenario) setSearchParams({});
     else reload();
@@ -112,7 +131,7 @@ function DashboardPage() {
               />
             </div>
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
-            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
+            <RequestList requests={filteredRequestsWithSearch} onDeleteRequest={handleDelete} />
           </section>
         </>
       )}
