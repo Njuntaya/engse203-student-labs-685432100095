@@ -16,6 +16,7 @@ function DashboardPage() {
   const [requests, setRequests] = useState([]); // useState Update 
   const [statusFilter, setStatusFilter] = useState('all');
   // TODO B2: เพิ่ม state สำหรับข้อความค้นหา ที่นี่
+  const [searchText, setSearchText] = useState(''); 
   const [errorMessage, setErrorMessage] = useState('');
   const [notice, setNotice] = useState('');
 
@@ -102,6 +103,14 @@ function DashboardPage() {
           <section className="panel" aria-labelledby="request-list-title">
             <div className="section-heading"><h2 id="request-list-title">รายการคำร้อง</h2><FilterBar value={statusFilter} onFilterChange={setStatusFilter} /></div>
             {/* TODO B2: วางช่อง <input> ค้นหา ตรงนี้ (เหนือรายการ) แล้วกรองร่วมกับตัวกรองสถานะ */}
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="ค้นหาคำร้อง..."
+                value={searchText} 
+                onChange={(e) => setSearchText(e.target.value)} // อัปเดต state เมื่อผู้ใช้พิมพ์ข้อความค้นหา โดย target ชี้ value
+              />
+            </div>
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
             <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
           </section>
