@@ -130,6 +130,7 @@ function DashboardPage() {
                 onChange={(e) => setSearchText(e.target.value)} // อัปเดต state เมื่อผู้ใช้พิมพ์ข้อความค้นหา โดย target ชี้ value
               />
             </div>
+
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
             <RequestList requests={filteredRequestsWithSearch} onDeleteRequest={handleDelete} />
           </section>
