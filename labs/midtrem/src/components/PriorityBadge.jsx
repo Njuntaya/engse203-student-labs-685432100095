@@ -11,7 +11,7 @@ function PriorityBadge({ priority }) {
   }
 
   return (
-    <span className={`badge ${className}`}>
+    <span className={className}>
       {label}
     </span>
   );
