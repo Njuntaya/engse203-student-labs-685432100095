@@ -102,6 +102,7 @@ export async function resetRequests() {
   return structuredClone(seedRequests);
 }
 
+
 /**
  * updateRequestStatus · เปลี่ยนสถานะคำร้องแล้ว persist  (ให้มาแล้ว — ห้ามแก้)
  * ใช้ใน B3: เรียกฟังก์ชันนี้จากปุ่ม แล้วทำให้หน้าจอสะท้อนผล

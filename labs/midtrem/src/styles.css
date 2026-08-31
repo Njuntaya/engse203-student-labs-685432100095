@@ -62,6 +62,7 @@ input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="tr
 .site-footer { padding:1rem 0; color:#dbe9f8; background:var(--navy); }
 .subtle-empty { color:var(--muted); padding:1rem; }
 :focus-visible { outline:3px solid #f39c12; outline-offset:3px; }
+.button.success{ color:white; background:green; }
 @media (min-width:42rem) { .header-inner,.page-heading { flex-direction:row; align-items:center; } .header-inner { justify-content:space-between; } .request-card { flex-direction:row; justify-content:space-between; } }
 @media (min-width:52rem) { .summary-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } .section-heading { flex-direction:row; justify-content:space-between; align-items:center; } }
 @media (prefers-reduced-motion:reduce) { .spinner { animation:none; } }

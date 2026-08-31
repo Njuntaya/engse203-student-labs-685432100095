@@ -1,13 +1,13 @@
 import RequestCard from './RequestCard.jsx';
 
-function RequestList({ requests, onDeleteRequest }) {
+function RequestList({ requests, onDeleteRequest  , onMarkDone }) {
 
   
   if (requests.length === 0) return <p className="subtle-empty" align="center">ไม่มีคำร้องที่ตรงกับตัวกรองนี้</p>;
   return (
     <div className="request-list" data-testid="request-list">
       {requests.map((request) => (
-        <RequestCard key={request.id} request={request} onDeleteRequest={onDeleteRequest} /> // create key เพื่อระบุแต่ละคำร้องให้ React รู้จักและจัดการได้ถูกต้อง
+        <RequestCard key={request.id} request={request} onDeleteRequest={onDeleteRequest} onMarkDone={onMarkDone}  /> // create key เพื่อระบุแต่ละคำร้องให้ React รู้จักและจัดการได้ถูกต้อง
       ))}
     </div>
   );
