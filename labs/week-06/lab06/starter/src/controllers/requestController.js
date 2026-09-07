@@ -50,7 +50,7 @@ export function updateRequestStatus(req, res) {
 }
 
 /**
- * TODO W06-C5 (CP05) · DELETE /api/requests/:id
+ *  W06-C5 (CP05) · DELETE /api/requests/:id
  * - ไม่พบ → 404 · ลบสำเร็จ → 204 (ไม่มีข้อมูลส่งกลับ ใช้ res.status(204).end())
  */
 export function deleteRequest(req, res) {
