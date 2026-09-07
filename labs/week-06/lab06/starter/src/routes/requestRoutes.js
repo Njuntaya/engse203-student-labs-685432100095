@@ -22,5 +22,5 @@ router.get('/', controller.listRequests); //route request all
 router.get('/:id', controller.getRequest); // route request by id
 router.post('/', validateRequest, controller.createRequest); // route create request
 router.delete('/:id', controller.deleteRequest); // route delete request by id
-
+router.put('/:id', controller.updateRequestStatus); // route put
 export default router;

@@ -35,8 +35,8 @@ export function getRequest(req, res) {
  * - เรียก service.create() แล้วตอบ 201 พร้อมคำร้องที่สร้าง
  * ⚠ POST สำเร็จตอบ 201 ไม่ใช่ 200
  */
-export function createRequest(req, res) {
-  const created = service.create(req.body);
+export async function createRequest(req, res) {
+  const created = await service.create(req.body);
   res.status(201).json(created);
 }
 
@@ -45,16 +45,34 @@ export function createRequest(req, res) {
  * - status ที่รับได้: 'pending' | 'in-progress' | 'completed'
  * - status ไม่ถูกต้อง → 400 · ไม่พบคำร้อง → 404 · สำเร็จ → 200
  */
-export function updateRequestStatus(req, res) {
-  throw new Error('TODO W06-C4: updateRequestStatus');
+export async function updateRequestStatus(req, res) {
+  const { id } = req.params;
+  const { status } = req.body ; // pull status from Client
+
+  // check Status 
+  const validateStatuses = ['pending' , 'in-progress' , 'completed'];
+  if(!validateStatuses.includes(status)) {
+    return res.status(400).json({error: "invalid status. Allowed values are 'pending' , 'in-progress' , 'completed' "});
+  }
+
+  // call service for update the infomation 
+  const updated  = await service.updateStatus(id , status);
+
+  // if service return null = not found 
+  if(!updated) {
+    return res.status(404).json({ error: 'ไม่พบคำร้องขอรหัส ${id}'});
+  }
+
+  // success update 
+  res.status(200).json(updated);
 }
 
 /**
  *  W06-C5 (CP05) · DELETE /api/requests/:id
  * - ไม่พบ → 404 · ลบสำเร็จ → 204 (ไม่มีข้อมูลส่งกลับ ใช้ res.status(204).end())
  */
-export function deleteRequest(req, res) {
-  const removed = service.remove(req.params.id);
+export async function deleteRequest(req, res) {
+  const removed = await service.remove(req.params.id);
   if (!removed) {
     return res.status(404).json({ error: `ไม่พบคำร้องรหัส ${req.params.id}` });
   }
