@@ -1,6 +1,18 @@
 import * as service from '../services/requestService.js';
+import { AppError } from '../middleware/errorHandler.js';
 
 /** controller รู้จัก req/res และตัดสิน status code — แต่ไม่จัดการข้อมูลเอง */
+
+export const getRequestById = async (req, res) => {
+  const { id } = req.params;
+  const item = await findById(id);
+
+  if (!item) {
+    throw new AppError('ไม่พบคำร้อง', 404); // โยน AppError พร้อมเลข 404 ออกไปได้เลย
+  }
+
+  res.json(item);
+};
 
 export function listRequests(req, res) {
   const { status } = req.query;
