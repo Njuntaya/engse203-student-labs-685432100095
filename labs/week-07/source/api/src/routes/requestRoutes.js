@@ -1,0 +1,14 @@
+import express from 'express';
+import * as controller from '../controllers/requestController.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+
+const router = express.Router();
+
+router.get('/', asyncHandler(controller.listRequests));
+router.get('/:id', asyncHandler(controller.getRequest));
+router.post('/', asyncHandler(controller.createRequest));
+router.put('/:id', asyncHandler(controller.updateRequestStatus));
+router.delete('/:id', asyncHandler(controller.deleteRequest));
+router.post('/reset', asyncHandler(controller.resetRequests));
+
+export default router;

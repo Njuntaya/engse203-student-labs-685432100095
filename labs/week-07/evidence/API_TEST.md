@@ -46,14 +46,14 @@ npm test
 
 | เคส | ผลลัพธ์ | Code | Terminal Output |
 |---|:---:|---|---|
-| 1. GET /api/requests → array | ✅ / ❌ | ![เคส 1 code](แทรก-path-รูปที่นี่) | ![เคส 1 output](แทรก-path-รูปที่นี่) |
-| 2. GET /api/requests/:id พบ → 200 | ✅ / ❌ | ![เคส 2 code](แทรก-path-รูปที่นี่) | ![เคส 2 output](แทรก-path-รูปที่นี่) |
-| 3. GET /api/requests/:id ไม่พบ → 404 | ✅ / ❌ | ![เคส 3 code](แทรก-path-รูปที่นี่) | ![เคส 3 output](แทรก-path-รูปที่นี่) |
-| 4. POST ถูกต้อง → 201 pending | ✅ / ❌ | ![เคส 4 code](แทรก-path-รูปที่นี่) | ![เคส 4 output](แทรก-path-รูปที่นี่) |
-| 5. POST ไม่ครบ → 400 | ✅ / ❌ | ![เคส 5 code](แทรก-path-รูปที่นี่) | ![เคส 5 output](แทรก-path-รูปที่นี่) |
-| 6. CORS header ตรงกับ origin | ✅ / ❌ | ![เคส 6 code](แทรก-path-รูปที่นี่) | ![เคส 6 output](แทรก-path-รูปที่นี่) |
+| 1. GET /api/requests → array | ✅  | ![เคส 1 code](APITEST_Picture/Code/test1%20code.jpg) | ![เคส 1 output](APITEST_Picture/Console/test1%20console.jpg) |
+| 2. GET /api/requests/:id พบ → 200 | ✅ | ![เคส 2 code](APITEST_Picture/Code/test2%20code.jpg) | ![เคส 2 output](APITEST_Picture/Console/test3%20console.jpg) |
+| 3. GET /api/requests/:id ไม่พบ → 404 | ✅ | ![เคส 3 code](APITEST_Picture/Code/test3%20code.jpg) | ![เคส 3 output](APITEST_Picture/Console/test4%20console.jpg) |
+| 4. POST ถูกต้อง → 201 pending | ✅ | ![เคส 4 code](APITEST_Picture/Code/test4%20code.jpg) | ![เคส 4 output](APITEST_Picture/Console/test5%20console.jpg) |
+| 5. POST ไม่ครบ → 400 | ✅  | ![เคส 5 code](APITEST_Picture/Code/test5%20code.jpg) | ![เคส 5 output](APITEST_Picture/Console/test6%20console.jpg) |
+| 6. CORS header ตรงกับ origin | ✅ | ![เคส 6 code](APITEST_Picture/Code/testALL%20Code.jpg) | ![เคส 6 output](APITEST_Picture/Console/testALL%20console.jpg) |
 
-**จำนวนเคสที่ผ่าน:** __ / 6
+**จำนวนเคสที่ผ่าน:** 6 / 6
 
 ---
 
