@@ -111,3 +111,92 @@ ORDER BY u.id;
 **โครงสร้างและการจัดเก็บข้อมูล:** ผลลัพธ์จากการทำ JOIN ในฐานข้อมูลแสดงให้เห็นว่าข้อมูลถูกดึงมาจากตารางที่แยกอิสระจากกัน (ตาราง users และ requests) แล้วนำมาเชื่อมโยงกันผ่านความสัมพันธ์ ทำให้ข้อมูลมีความถูกต้องตามหลักฐานข้อมูลเชิงสัมพันธ์และไม่เกิดความซ้ำซ้อน ในขณะที่ข้อมูล JSON ของ Week 07 อยู่ในรูปของ Object เดี่ยวที่มีการฝังชื่อผู้แจ้ง (requesterName) รวมเป็นข้อความเดียวกันกับคำร้องโดยตรง
 
 **การจัดการเมื่อมีการเปลี่ยนแปลงข้อมูล:** หากข้อมูลของตัวผู้ใช้งานมีการเปลี่ยนแปลง (เช่น เปลี่ยนชื่อหรืออีเมล) ฝั่งฐานข้อมูลที่มีการแยกตารางและใช้ JOIN จะรองรับการอัปเดตที่จุดเดียวในตาราง users โดยที่ข้อมูลทุกรายการจะสะท้อนค่าปัจจุบันทันที ต่างจากโครงสร้าง JSON แบบเดิมใน Week 07 ที่หากชื่อผู้แจ้งเปลี่ยนไป ข้อมูลในตารางคำร้องทุกแถวที่มีชื่อนั้นจะต้องถูกตามไปแก้ไขทีละรายการ ซึ่งเสี่ยงต่อความไม่สอดคล้องของข้อมูลในระบบ
+
+---
+
+## 7. CP25 · ทดสอบ constraint
+
+| # | ลองทำ | ต้องได้ error |
+|---|---|---|
+| ① | ใส่คำร้องที่ `requester_id = 99999` | FOREIGN KEY constraint failed |
+| ② | ใส่ `status = 'ยกเลิก'` | CHECK constraint failed |
+| ③ | ใส่อีเมลซ้ำกับคนที่มีอยู่ | UNIQUE constraint failed |
+| ④ | ใส่คำร้องที่ `id` ซ้ำ | UNIQUE constraint failed |
+| ⑤ | ใส่คำร้องโดยไม่ระบุ `location` | NOT NULL constraint failed |
+
+### ผลการทดสอบ Constraint
+
+**1. ใส่คำร้องที่ requester_id = 99999**
+
+คำสั่งที่ลอง
+
+```sql
+INSERT INTO requests (id, requester_id, request_type, location, details)
+VALUES ('REQ-TEST', 99999, 'แจ้งซ่อม', 'ห้องทดสอบ', 'ทดสอบระบบ');
+```
+
+ผลลัพธ์
+
+```
+FOREIGN KEY constraint failed
+```
+
+**2. ใส่ status = 'ยกเลิก'**
+
+คำสั่งที่ลอง
+
+```sql
+INSERT INTO requests (id, requester_id, request_type, location, details, status)
+VALUES ('REQ-TEST2', 1, 'แจ้งซ่อม', 'ห้องทดสอบ', 'ทดสอบระบบ', 'ยกเลิก');
+```
+
+ผลลัพธ์
+
+```
+CHECK constraint failed: status IN ('pending' , 'in-progress' , 'completed') (19)
+```
+
+**3. ใส่อีเมลซ้ำกับคนที่มีอยู่**
+
+คำสั่งที่ลอง
+
+```sql
+INSERT INTO users (name, department, email)
+VALUES ('ทดสอบ ชื่อ', 'วิศวกรรม', 'aungkanr@rmutl.ac.th');
+```
+
+ผลลัพธ์
+
+```
+UNIQUE constraint failed: user.email (19)
+```
+
+**4. ใส่คำร้องที่ id ซ้ำ**
+
+คำสั่งที่ลอง
+
+```sql
+INSERT INTO requests (id, requester_id, request_type, location, details)
+VALUES ('REQ-001', 1, 'แจ้งซ่อม', 'ห้องทดสอบ', 'ทดสอบระบบ');
+```
+
+ผลลัพธ์
+
+```
+UNIQUE constraint failed: requests.id (19)
+```
+
+**5. ใส่คำร้องโดยไม่ระบุ location**
+
+คำสั่งที่ลอง
+
+```sql
+INSERT INTO requests (id, requester_id, request_type, details)
+VALUES ('REQ-TEST5', 1, 'ทดสอบระบบ');
+```
+
+ผลลัพธ์
+
+```
+Parse error: 3 values for 4 columns
+```

@@ -5,7 +5,7 @@
 -- เขียนคำสั่งจริงที่รันได้ ไม่ใช่เขียนบรรยาย
 -- ทุกข้อต้องทดสอบแล้วว่าได้ผลลัพธ์ถูกต้อง
 -- ═══════════════════════════════════════════════════════════
-
+    PRAGMA foreign_keys = ON;
 -- ① คำร้องทั้งหมด เรียงตามรหัส
     SELECT * FROM requests ORDER BY id; --เลือกทั้งหมด จากTABLE requests และ เรียงID จาก น้อย -> มาก 
 
@@ -18,7 +18,7 @@
 -- ③ คำร้องเร่งด่วนที่ยังไม่เสร็จ — ใช้เงื่อนไข 2 ข้อพร้อมกัน
 
     SELECT id , location , details , status FROM requests 
-    WHERE priority = 'urgent' AND status != 'complete'
+    WHERE priority = 'urgent' AND status != 'completed'
     ORDER BY id;
 
 -- ④ ค้นคำร้องจากคำบางส่วนในรายละเอียด  (คำใบ้: LIKE)
@@ -27,7 +27,7 @@
     ORDER BY id ;
 
 -- ⑤ คำร้องพร้อมชื่อผู้แจ้ง  ← ต้องใช้ JOIN เพราะชื่ออยู่คนละตาราง
-    SELECT  requester_id , u.name , r.request_type , r.Location , r.details FROM requests r
+    SELECT r.id , requester_id , u.name , r.request_type , r.Location , r.details FROM requests r
     JOIN users u ON r.requester_id = u.id
     ORDER BY r.id;
 -- ⑥ คำร้องเฉพาะของภาควิชาหนึ่ง  (JOIN + WHERE)
@@ -43,9 +43,9 @@
     ORDER BY u.name;
 
 -- ⑧ คำร้อง 3 รายการล่าสุด  (คำใบ้: ORDER BY + LIMIT)
-    SELECT requester_id , location ,details FROM requests 
-    ORDER BY requester_id DESC
-    LIMIT 3;
+   SELECT id, requester_id, location, details FROM requests 
+   ORDER BY id DESC 
+   LIMIT 3;
 
 
 -- ⭐ Challenge ─────────────────────────────────────────────
