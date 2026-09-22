@@ -44,7 +44,7 @@
 
 -- ⑧ คำร้อง 3 รายการล่าสุด  (คำใบ้: ORDER BY + LIMIT)
     SELECT requester_id , location ,details FROM requests 
-    ORDER BY DESC requester_id
+    ORDER BY requester_id DESC
     LIMIT 3;
 
 
