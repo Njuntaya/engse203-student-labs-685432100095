@@ -121,21 +121,31 @@ export class AppError extends Error {
 }
 
 export function create(input) {
-  const id = nextId(); // ต้องประกาศสร้าง id ใหม่ก่อน
+
+  const id = nextId(); 
+  db.exec('BEGIN'); 
+  
   try {
-    db.prepare(
-      `INSERT INTO requests (id, requester_id, request_type, location, details, priority)
-       VALUES (?, ?, ?, ?, ?, ?)`
-    ).run(
+    const requesterId = resolveUserId(input.requesterName.trim());
+    
+    db.prepare(`
+      INSERT INTO requests (id, requester_id, request_type, location, details, priority)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run(
       id,
-      resolveUserId(input.requesterName.trim()),
+      requesterId,
       input.requestType,
-      input.location.trim(),
-      input.details.trim(),
-      input.priority ?? 'normal'
+      input.location,
+      input.details,
+      input.priority
     );
+
+    db.exec('COMMIT'); 
+    return findById(id); 
+    
   } catch (err) {
-    throw toAppError(err);
+    db.exec('ROLLBACK');
+    throw err;
   }
   return findById(id);
 }

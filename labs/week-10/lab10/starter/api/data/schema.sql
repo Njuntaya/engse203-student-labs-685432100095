@@ -38,7 +38,7 @@ PRAGMA foreign_keys = ON;
             CREATE TABLE requests (
                 id TEXT PRIMARY KEY,
                 requester_id INTEGER NOT NULL , 
-                request_type TEXT NOT NULL CHECK (request_type IN ('แจ้งซ่อม' , 'บริการบัญชีผู้ใช้' , 'ขอใช้อุปกรณ์' , 'อื่นๆ')),
+                request_type TEXT NOT NULL CHECK (request_type IN ('แจ้งซ่อม' , 'บริการบัญชีผู้ใช้' , 'ขอใช้อุปกรณ์' , 'อื่นๆ' , 'อื่น ๆ')),
                 location TEXT NOT NULL ,
                 details TEXT NOT NULL ,
                 priority TEXT NOT NULL DEFAULT 'normal' CHECK (priority IN ('normal' , 'urgent')) ,
@@ -67,3 +67,8 @@ PRAGMA foreign_keys = ON;
             ('REQ-006', 2, 'แจ้งซ่อม', 'ห้องปฏิบัติการ 401', 'ไฟในห้องกะพริบตลอดเวลา', 'normal', 'pending'),
             ('REQ-007', 4, 'ขอใช้อุปกรณ์', 'ห้องปฏิบัติการ 405', 'ขอยืมใช้เครื่อง MAC เพื่อพัฒนาทักษะการเขียน code', 'normal', 'pending'),
             ('REQ-008', 4, 'แจ้งซ่อม', 'ห้องปฏิบัติการ 404', 'เพดานห้องมีรอยแตกและมีบางชิ้นส่วนตกลงมา', 'urgent', 'pending');
+
+
+--Challenge CP35
+CREATE INDEX IF NOT EXISTS idx_requests_status ON requests(status);
+CREATE INDEX IF NOT EXISTS idx_requests_requester ON requests(requester_id);
