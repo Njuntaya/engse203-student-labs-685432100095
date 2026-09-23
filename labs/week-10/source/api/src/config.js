@@ -8,8 +8,10 @@ export const config = {
   dbFile: process.env.DB_FILE ?? './data/campus.db',
   schemaFile: process.env.SCHEMA_FILE ?? './data/schema.sql',
   port: Number(process.env.PORT ?? 3001),
-  corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
-  nodeEnv: process.env.NODE_ENV ?? 'development' ,
+  corsOrigin: process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map(s => s.trim())
+    : ['http://localhost:5173', 'https://njuntaya.github.io'],
+  nodeEnv: process.env.NODE_ENV ?? 'development',
   get isProduction() {
     return this.nodeEnv === 'production';
   },
