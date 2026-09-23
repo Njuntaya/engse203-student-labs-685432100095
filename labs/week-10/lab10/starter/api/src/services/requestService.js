@@ -69,6 +69,14 @@ const SELECT_SHAPE = `
   FROM requests r
   JOIN users u ON u.id = r.requester_id`;
 
+  function toAppError(err) {
+  const m = err.message ?? '';
+  if (m.includes('FOREIGN KEY')) return new AppError('อ้างถึงข้อมูลที่ไม่มีอยู่จริง', 400);
+  if (m.includes('CHECK'))       return new AppError('ค่าที่ส่งมาไม่อยู่ในรายการที่กำหนด', 400);
+  if (m.includes('UNIQUE'))      return new AppError('ข้อมูลนี้มีอยู่แล้วในระบบ', 409);
+  return err;   // error อื่นปล่อยผ่าน → errorHandler ตอบ 500
+}
+
 export function findAll({ status } = {}) {
   /**
    * TODO W10-3 (CP28) · เปลี่ยนเป็น SELECT จากฐานข้อมูล
@@ -105,20 +113,31 @@ function nextId() {
   return `REQ-${String(n).padStart(3, '0')}`;
 }
 
+export class AppError extends Error {
+  constructor(message, status = 500) {
+    super(message);
+    this.status = status;
+  }
+}
+
 export function create(input) {
-  const id = nextId();
-  db.prepare(
-    `INSERT INTO requests (id, requester_id, request_type, location, details, priority)
-     VALUES (?, ?, ?, ?, ?, ?)`
-  ).run(
-    id,
-    resolveUserId(input.requesterName.trim()),
-    input.requestType,
-    input.location.trim(),
-    input.details.trim(),
-    input.priority ?? 'normal'
-  );
-  return findById(id);   // คืนรูปแบบที่ frontend ต้องการ
+  const id = nextId(); // ต้องประกาศสร้าง id ใหม่ก่อน
+  try {
+    db.prepare(
+      `INSERT INTO requests (id, requester_id, request_type, location, details, priority)
+       VALUES (?, ?, ?, ?, ?, ?)`
+    ).run(
+      id,
+      resolveUserId(input.requesterName.trim()),
+      input.requestType,
+      input.location.trim(),
+      input.details.trim(),
+      input.priority ?? 'normal'
+    );
+  } catch (err) {
+    throw toAppError(err);
+  }
+  return findById(id);
 }
 
 export function updateStatus(id, status) {
