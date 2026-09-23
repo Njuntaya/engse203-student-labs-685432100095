@@ -130,14 +130,14 @@
     "status": "submitted",
     "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit4/week-10/labs/week-10/source",
     "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
-    "originalCommit": "",
-    "pullRequestUrl": "",
+    "originalCommit": "6b06a96",
+    "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/21",
     "submissionTag": "lab-10-submission-v1",
     "testStatus": "pass",
     "notes": "เชื่อม Node เข้ากับ SQLite ป้องกัน SQL Injection errorHanding Test ด้วย Supertest และ Node check ครบ 31/31 list",
     "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-10/",
     "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/lab/week-10/labs/week-10/source",
     "hasPublish": true,
-    "sourceEntries": 5
+    "sourceEntries": 6
   }
 ]
