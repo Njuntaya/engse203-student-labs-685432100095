@@ -39,29 +39,10 @@ export async function addRequest(requestInput) {
 }
 
 export async function updateRequestStatus(id, newStatus) {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001';  
-  const response = await fetch(`${baseUrl}/api/requests/${id}`, {
+  return apiFetch(`/api/requests/${encodeURIComponent(id)}`, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    // ส่งข้อมูลสถานะใหม่เป็น JSON
     body: JSON.stringify({ status: newStatus }),
   });
-
-  if (!response.ok) {
-    let errorDetail = '';
-    try {
-      const errorData = await response.json();
-      errorDetail = errorData.error || 'ไม่ระบุสาเหตุ';
-    } catch {
-      errorDetail = response.statusText;
-    }
-    throw new Error(`ไม่สามารถอัปเดตสถานะคำร้องได้ (${response.status}: ${errorDetail})`);
-  }
-
-  // ส่งคืนข้อมูล Request ที่ถูกแก้ไขแล้ว
-  return response.json();
 }
 
 export async function deleteRequest(requestId) {
