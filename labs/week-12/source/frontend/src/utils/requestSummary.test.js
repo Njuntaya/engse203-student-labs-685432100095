@@ -6,9 +6,7 @@ describe('summarizeRequests', () => {
     expect(summarizeRequests([])).toEqual({ total: 0, pending: 0, inProgress: 0, completed: 0 });
   });
 
-  // 🏫 TODO W12-DEBUG (CP47 · BUG #2): เพิ่ม test ที่ใช้ข้อมูลหน้าตาเดียวกับที่ API ส่งมา
-  //   เปิด DevTools → Network → GET /api/requests → ดูค่า status จริง แล้วคัดลอกมาใช้
-   // 🐞 regression test — BUG #2 · ข้อมูลรูปแบบเดียวกับที่ GET /api/requests ส่งมา
+  // 🐞 regression test — BUG #2 · ข้อมูลรูปแบบเดียวกับที่ GET /api/requests ส่งมา
   const sample = [
     { id: 'REQ-001', status: 'pending' },
     { id: 'REQ-002', status: 'in-progress' },
@@ -19,4 +17,6 @@ describe('summarizeRequests', () => {
     expect(summarizeRequests(sample)).toEqual({ total: 4, pending: 2, inProgress: 1, completed: 1 });
   });
 
+  // 🏫 TODO W12-DEBUG (CP47 · BUG #2): เพิ่ม test ที่ใช้ข้อมูลหน้าตาเดียวกับที่ API ส่งมา
+  //   เปิด DevTools → Network → GET /api/requests → ดูค่า status จริง แล้วคัดลอกมาใช้
 });
