@@ -29,12 +29,21 @@ async function parseError(response) {
  * - ตอบ 4xx/5xx → โยน ApiError พร้อม status
  * - ต่อ API ไม่ได้เลย → โยน ApiError status 0
  */
-export async function apiFetch(path, options = {}) {
+  export async function apiFetch(path, options = {}) {
+  //ดึง Token จาก localStorage
+  const token = localStorage.getItem('token');
+
   let response;
   try {
     response = await fetch(`${BASE_URL}${path}`, {
-      headers: { 'Content-Type': 'application/json', ...options.headers },
       ...options,
+      headers: {
+        'Content-Type': 'application/json',
+            //แทรก Authorization Header เข้าไปถ้ามี token
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
+        
+        ...options.headers,
+      },
     });
   } catch {
     // fetch โยน error เมื่อต่อเซิร์ฟเวอร์ไม่ได้เลย เช่น API ไม่ได้เปิด
