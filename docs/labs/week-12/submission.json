@@ -4,13 +4,13 @@
   "status": "submitted",
   "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-12/labs/week-12/source",
   "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
-  "originalCommit": "",
-  "pullRequestUrl": "",
+  "originalCommit": "08495e2",
+  "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/23",
   "submissionTag": "lab-12-submission-v1",
   "testStatus": "pass",
   "notes": "เขียน unit และ integration test เพิ่มเติมเพื่อดันโค้ดเทสต์ Coverage ให้ผ่านเกณฑ์ และตั้งค่า GitHub Actions CI สำหรับรันเทสต์อัตโนมัติ Challenge ครบ 22/22",
   "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-12/",
-  "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/lab/week-12/labs/week-12/source",
+  "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-12/labs/week-12/source",
   "hasPublish": true,
   "sourceEntries": 17
 }
