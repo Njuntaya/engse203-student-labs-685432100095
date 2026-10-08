@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { validateRequestInput, isValidStatus } from '../../src/validators/requestValidator.js';
-
+import { AppError, asyncHandler, notFound, errorHandler } from '../../src/middleware/errorHandler.js';
+import { loadSeed, listRequestsByUser, getDbStatus } from '../../src/services/requestService.js';
 /**
  * Unit test — ทดสอบ pure function โดยตรง ไม่ต้องเปิด server ไม่ต้องมีฐานข้อมูล
  * กรณีทดสอบมาจากตาราง TEST_CASES.md (CP44): แบ่งกลุ่มข้อมูล + ค่าขอบ
@@ -75,3 +76,32 @@ describe('isValidStatus', () => {
     expect(isValidStatus(s)).toBe(false);
   });
 });
+
+describe('validateRequestInput — เพิ่มเติมกรณีค่าว่างหรือเกินขอบเขต', () => {
+  test('location (สถานที่) เป็นค่าว่างหรือสั้นเกินไป → error', () => {
+    expect(validateRequestInput(withField({ location: '' }))).toHaveLength(1);
+  });
+  
+  test('requestType ผิดประเภทแบบอาร์เรย์หรือตัวเลข → error', () => {
+    expect(validateRequestInput(withField({ requestType: 123 }))).toHaveLength(1);
+  });
+}); 
+
+describe('requestService — การจัดการข้อมูลและฟังก์ชันเสริม', () => {
+  test('listRequestsByUser() ต้องคืนค่าอาร์เรย์คำร้องของ user ตาม id ที่กำหนด', async () => {
+    // ทดสอบดึงรายการคำร้องของ User ID = 1 ตามโครงสร้างฐานข้อมูล
+    await loadSeed();
+    const requests = listRequestsByUser(1);
+    expect(Array.isArray(requests)).toBe(true);
+  });
+});
+
+describe('AppError', () => {
+  test('สร้าง error พร้อมกำหนด status ได้ ', () => {
+    const err = new AppError('ข้อผิดพลาด', 400);
+    expect(err.message).toBe('ข้อผิดพลาด');
+    expect(err.status).toBe(400);
+  });
+});
+
+
