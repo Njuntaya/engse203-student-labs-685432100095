@@ -1,0 +1,12 @@
+{
+  "week": "week-13",
+  "title": "Input Validation, Password Hashing/JWT, .env & Release Checklist",
+  "status": "submitted",
+  "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-13/labs/week-13/source",
+  "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
+  "originalCommit": "7a583ab",
+  "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/24",
+  "submissionTag": "lab-13-submission-v1",
+  "testStatus": "pass",
+  "notes": "สรุปการทำงานใน Week 13 เราได้เพิ่มระบบความปลอดภัยและจัดการสิทธิ์ (RBAC) ให้โปรเจกต์สมบูรณ์ยิ่งขึ้น โดยสร้างระบบ Login และฟังก์ชันยืนยันตัวตนสำหรับเจ้าหน้าที่, ปรับแต่งหน้าตาเว็บไซต์ให้ซ่อน/แสดงปุ่มลบและช่องเปลี่ยนสถานะคำร้องเฉพาะผู้ที่มีสิทธิ์ staff Checkpoint ครบ 27/27"
+}
