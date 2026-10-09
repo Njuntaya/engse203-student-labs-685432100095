@@ -5,6 +5,7 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import NewRequestPage from './pages/NewRequestPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import RequestDetailPage from './pages/RequestDetailPage.jsx';
+import LoginPage from './pages/loginPage.jsx';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="requests/new" element={<NewRequestPage />} />
         <Route path="requests/:requestId" element={<RequestDetailPage />} />
         <Route path="about" element={<AboutPage />} />
+        {/*เพิ่ม Route สำหรับหน้า Login */}
+        <Route path="login" element={<LoginPage />} /> 
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
