@@ -5,7 +5,7 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import NewRequestPage from './pages/NewRequestPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import RequestDetailPage from './pages/RequestDetailPage.jsx';
-import LoginPage from './pages/loginPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
 
 function App() {
   return (
