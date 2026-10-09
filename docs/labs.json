@@ -139,5 +139,53 @@
     "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit4/week-10/labs/week-10/source",
     "hasPublish": true,
     "sourceEntries": 6
+  },
+  {
+    "week": "week-11",
+    "title": "Full-Stack Integration",
+    "status": "submitted",
+    "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit4/week-11/labs/week-11/source",
+    "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
+    "originalCommit": "d5c17a2",
+    "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/22",
+    "submissionTag": "lab-11-submission-v1",
+    "testStatus": "pass",
+    "notes": "เชื่อมต่อ Node.js เข้ากับ SQLite ด้วย node:sqlite, Data Mapping (JOIN/AS), Parameterized Queries ป้องกัน SQL Injection (CP31), Database Error Handling ด้วย AppError (CP32), Automated Testing ด้วย supertest (CP33), API Contract v2.0.0 (CP34), และ Challenge ครบถ้วน (31/31 รายการ)",
+    "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-11/",
+    "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit4/week-11/labs/week-11/source",
+    "hasPublish": true,
+    "sourceEntries": 15
+  },
+  {
+    "week": "week-12",
+    "title": "Integration Testing & Debbugging (Test Case ,Unit Testing)",
+    "status": "submitted",
+    "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-12/labs/week-12/source",
+    "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
+    "originalCommit": "08495e2",
+    "pullRequestUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/pull/23",
+    "submissionTag": "lab-12-submission-v1",
+    "testStatus": "pass",
+    "notes": "เขียน unit และ integration test เพิ่มเติมเพื่อดันโค้ดเทสต์ Coverage ให้ผ่านเกณฑ์ และตั้งค่า GitHub Actions CI สำหรับรันเทสต์อัตโนมัติ Challenge ครบ 22/22",
+    "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-12/",
+    "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-12/labs/week-12/source",
+    "hasPublish": true,
+    "sourceEntries": 17
+  },
+  {
+    "week": "week-13",
+    "title": "Input Validation, Password Hashing/JWT, .env & Release Checklist",
+    "status": "submitted",
+    "sourceOrigin": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-13/labs/week-13/source",
+    "originalRepoUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/main/labs",
+    "originalCommit": "",
+    "pullRequestUrl": "",
+    "submissionTag": "lab-13-submission-v1",
+    "testStatus": "pass",
+    "notes": "สรุปการทำงานใน Week 13 เราได้เพิ่มระบบความปลอดภัยและจัดการสิทธิ์ (RBAC) ให้โปรเจกต์สมบูรณ์ยิ่งขึ้น โดยสร้างระบบ Login และฟังก์ชันยืนยันตัวตนสำหรับเจ้าหน้าที่, ปรับแต่งหน้าตาเว็บไซต์ให้ซ่อน/แสดงปุ่มลบและช่องเปลี่ยนสถานะคำร้องเฉพาะผู้ที่มีสิทธิ์ staff Checkpoint ครบ 27/27",
+    "pageUrl": "https://Njuntaya.github.io/engse203-student-labs-685432100095/labs/week-13/",
+    "sourceUrl": "https://github.com/Njuntaya/engse203-student-labs-685432100095/tree/unit5/week-13/labs/week-13/source",
+    "hasPublish": true,
+    "sourceEntries": 19
   }
 ]
